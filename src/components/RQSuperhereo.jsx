@@ -6,16 +6,14 @@ import { useAddMutation } from '../hooks/hookfile'
 import api from '../utils/axios-util'
 
 function fetchSuperHeros (){
-    return api("http://localhost:4000/superheroes")
+    return api("/superheroes")
 }
 export default function RQSuperHeroPage(){
  const [name, setName] = React.useState("")
   const [alterEgo, setEgo] = React.useState("")
   const {mutate} = useAddMutation();
 
-   const onSuccess = (data)=> {
-    // console.log('data', data)
-   }
+   const onSuccess = (data)=> {}
     const {data, isLoading, isError, error, isFetching} = useQuery('super-heros', fetchSuperHeros, {
         onSuccess,
         select: (data)=> {
@@ -27,8 +25,6 @@ export default function RQSuperHeroPage(){
     const addUser = ()=> {
         mutate({name, alterEgo})
     }
-
-    // console.log('isloading', isLoading, "isfetching", isFetching)
     if(isLoading){
         return <div>Loading..</div>
     }

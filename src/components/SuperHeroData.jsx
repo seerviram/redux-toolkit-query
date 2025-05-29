@@ -1,12 +1,12 @@
 import axios from "axios";
-import { use } from "react";
 import { useQuery, useQueryClient } from "react-query";
 import { useParams } from "react-router-dom"
+import api from "../utils/axios-util";
 
 
 const fetchUser = ({queryKey})=> {
     const id = queryKey[1]
-    return  axios("http://localhost:4000/superheroes/"+id)
+    return  api("/superheroes/"+id)
 }
 export default function SuperHeroDataPage(){
     const queryClient = useQueryClient()
@@ -15,8 +15,6 @@ export default function SuperHeroDataPage(){
         initialData: ()=> {
             let userData = queryClient.getQueryData('super-heros')
             const updatedUser = userData.data.find(user=> user.id === (heroId))
-            console.log("user", updatedUser)
-           updatedUser.name='bholaram';
             return {
                 data: updatedUser
             };

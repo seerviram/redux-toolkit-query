@@ -1,27 +1,3 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-// import UserView from './features/users/Usersview'
-// import CakeView from './features/cake/Cakeview'
-// import IcecreamView from './features/icecream/Icecreamview'
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <UserView/>
-//         <CakeView/>
-//         <IcecreamView/>
-//   </div>
-//     </>
-//   )
-// }
-
-// export default App
-
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 import  HomePage from './components/Homepage'
